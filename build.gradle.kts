@@ -7,4 +7,6 @@ plugins {
     //Hilt
     id("com.google.dagger.hilt.android") version "2.57.1" apply false
 
+    // Kotlin serialization plugin for type safe routes and navigation arguments
+    kotlin("plugin.serialization") version "2.0.0"
 }
