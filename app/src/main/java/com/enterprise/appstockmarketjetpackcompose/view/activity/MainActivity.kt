@@ -1,4 +1,4 @@
-package com.enterprise.appstockmarketjetpackcompose
+package com.enterprise.appstockmarketjetpackcompose.view.activity
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
