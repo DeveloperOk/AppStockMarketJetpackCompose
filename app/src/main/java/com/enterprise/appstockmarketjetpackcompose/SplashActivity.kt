@@ -33,7 +33,6 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.enterprise.appstockmarketjetpackcompose.ui.theme.AppPrimaryColor
 import com.enterprise.appstockmarketjetpackcompose.ui.theme.AppStockMarketJetpackComposeTheme
@@ -46,6 +45,11 @@ class SplashActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
+        val activityFinisher : () -> Unit = {
+            this.finish()
+        }
+
         setContent {
             AppStockMarketJetpackComposeTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
@@ -53,7 +57,7 @@ class SplashActivity : ComponentActivity() {
                            verticalArrangement = Arrangement.Center,
                            modifier = Modifier.fillMaxSize().padding(innerPadding)){
 
-                        SplashScreen()
+                        SplashScreen(activityFinisher = activityFinisher)
 
                     }
                 }
@@ -65,7 +69,7 @@ class SplashActivity : ComponentActivity() {
 
 
 @Composable
-fun SplashScreen() {
+fun SplashScreen(activityFinisher: () -> Unit) {
 
     val context = LocalContext.current
 
@@ -84,7 +88,7 @@ fun SplashScreen() {
         )
 
         delay(2000L)
-        launchNextScreen(context = context)
+        launchNextScreen(context = context, activityFinisher = activityFinisher)
     } )
 
 
@@ -127,11 +131,11 @@ fun SplashScreen() {
     }
 }
 
-fun launchNextScreen(context: Context) {
+fun launchNextScreen(context: Context, activityFinisher: () -> Unit) {
 
     val mainActivityIntent = Intent(context, MainActivity::class.java)
     context.startActivity(mainActivityIntent)
-
+    activityFinisher()
 }
 
 
