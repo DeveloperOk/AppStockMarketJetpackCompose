@@ -69,6 +69,17 @@ dependencies {
     // JSON serialization library, works with the Kotlin serialization plugin
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.0")
 
+    //Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    //Gson
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    //CSV
+    implementation("com.opencsv:opencsv:5.12.0")
+
+    //HiltViewModel
+    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

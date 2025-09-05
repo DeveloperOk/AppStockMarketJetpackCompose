@@ -10,7 +10,9 @@ import androidx.compose.ui.Modifier
 import com.enterprise.appstockmarketjetpackcompose.model.screen.StockDetailScreenData
 
 @Composable
-fun StockDetailScreen(stockDetailScreenData: StockDetailScreenData) {
+fun StockDetailScreen(
+    stockDetailScreenData: StockDetailScreenData
+) {
 
     Column(horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,

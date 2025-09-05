@@ -3,4 +3,8 @@
 
     <string name="splash_screen_message">Stock Market</string>
     <string name="title_activity_main">MainActivity</string>
+
+    <string name="stock_list_screen_error_message">Error!</string>
+
+
 </resources>
