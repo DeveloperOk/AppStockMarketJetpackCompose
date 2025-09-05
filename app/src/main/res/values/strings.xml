@@ -6,5 +6,8 @@
 
     <string name="stock_list_screen_error_message">Error!</string>
 
+    <string name="stock_list_screen_last_update_time">"Last Update Time: "</string>
+    <string name="stock_list_screen_usd_sign">$</string>
+
 
 </resources>

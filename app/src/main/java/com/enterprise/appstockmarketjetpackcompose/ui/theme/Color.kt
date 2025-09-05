@@ -12,3 +12,11 @@ val Pink40 = Color(0xFF7D5260)
 
 val AppPrimaryColor = Color(0xFF23E2A2)
 val CircularProgressIndicatorColor = Color(0xFF00FF00)
+
+val LastUpdateTimeColor = Color(0xFF000000)
+val StockListRowTextColor = Color(0xFF000000)
+
+val StockListRowNeutralBorderColor = Color(0xFF000000)
+val StockListRowUpBorderColor = Color(0xFF11DE1C)
+val StockListRowDownBorderColor = Color(0xFFFF0000)
+
