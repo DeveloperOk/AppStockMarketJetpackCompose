@@ -9,5 +9,8 @@
     <string name="stock_list_screen_last_update_time">"Last Update Time: "</string>
     <string name="stock_list_screen_usd_sign">$</string>
 
+    <string name="stock_detail_screen_usd_sign">"$"</string>
+    <string name="stock_detail_screen_stock_name_label">"Stock: "</string>
+    <string name="stock_detail_screen_price_label">"Price: "</string>
 
 </resources>

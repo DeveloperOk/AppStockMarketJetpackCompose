@@ -20,3 +20,6 @@ val StockListRowNeutralBorderColor = Color(0xFF000000)
 val StockListRowUpBorderColor = Color(0xFF11DE1C)
 val StockListRowDownBorderColor = Color(0xFFFF0000)
 
+val StockDetailLabelTextColor = Color(0xFF000000)
+
+

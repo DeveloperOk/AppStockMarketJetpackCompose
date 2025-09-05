@@ -1,11 +1,10 @@
 package com.enterprise.appstockmarketjetpackcompose.view.screen.stocklist
 
 
-import android.content.Context
-import android.graphics.drawable.Drawable
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -29,10 +28,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import com.enterprise.appstockmarketjetpackcompose.R
+import com.enterprise.appstockmarketjetpackcompose.model.screen.StockDetailScreenData
 import com.enterprise.appstockmarketjetpackcompose.remotedatasource.mock.PriceTrend
 import com.enterprise.appstockmarketjetpackcompose.remotedatasource.mock.Stock
 import com.enterprise.appstockmarketjetpackcompose.state.UiState
@@ -68,7 +67,7 @@ fun StockListScreen(
             }
             is UiState.Success -> {
 
-                TimeAndStockList(uiState = uiState)
+                TimeAndStockList(uiState = uiState, navController = navController)
 
             }
             is UiState.Error -> {
@@ -99,7 +98,7 @@ fun StockListScreenProgressIndicator(){
 }
 
 @Composable
-fun TimeAndStockList(uiState: State<UiState>) {
+fun TimeAndStockList(uiState: State<UiState>, navController: NavHostController) {
 
     val uiStateSuccess = uiState.value as UiState.Success
     val stockList = uiStateSuccess.stockList as ArrayList<Stock>
@@ -117,7 +116,7 @@ fun TimeAndStockList(uiState: State<UiState>) {
 
             items(stockList) { stock ->
 
-                StockListRow(stock = stock)
+                StockListRow(stock = stock, navController = navController)
 
             }
 
@@ -127,7 +126,7 @@ fun TimeAndStockList(uiState: State<UiState>) {
 }
 
 @Composable
-fun StockListRow(stock: Stock) {
+fun StockListRow(stock: Stock, navController: NavHostController) {
 
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
@@ -137,6 +136,12 @@ fun StockListRow(stock: Stock) {
             .border(width = 2.dp,color = getBorderColor(stock = stock), shape = RoundedCornerShape(10.dp))
             .padding(5.dp)
             .horizontalScroll(rememberScrollState())
+            .clickable{
+                navController.navigate(
+                    StockDetailScreenData(name = stock.name,
+                        currentPrice = stock.currentPrice)
+                )
+            }
     ) {
 
         Row(verticalAlignment = Alignment.CenterVertically){
