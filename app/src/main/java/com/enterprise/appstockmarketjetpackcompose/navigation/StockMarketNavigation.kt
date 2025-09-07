@@ -7,7 +7,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.enterprise.appstockmarketjetpackcompose.model.screen.StockDetailScreenData
-import com.enterprise.appstockmarketjetpackcompose.model.screen.StockListScreenData
 import com.enterprise.appstockmarketjetpackcompose.view.screen.stockdetail.StockDetailScreen
 import com.enterprise.appstockmarketjetpackcompose.view.screen.stocklist.StockListScreen
 import com.enterprise.appstockmarketjetpackcompose.viewmodel.StockListScreenViewModel
@@ -19,21 +18,26 @@ fun StockMarketNavigation() {
     val navController = rememberNavController()
 
     NavHost(navController = navController,
-        startDestination = StockListScreenData
+        startDestination = StockMarketScreens.StockListScreenRoute
     ) {
 
-        composable<StockListScreenData>{
+        composable<StockMarketScreens.StockListScreenRoute>{
 
             val stockListScreenViewModel = hiltViewModel<StockListScreenViewModel>()
 
             StockListScreen(navController = navController, stockListScreenViewModel = stockListScreenViewModel)
         }
 
-        composable<StockDetailScreenData>{ backStackEntry ->
+        composable<StockMarketScreens.StockDetailScreenRoute>{ backStackEntry ->
 
-            val stockDetailScreenData: StockDetailScreenData = backStackEntry.toRoute()
+            val stockDetailScreenRoute: StockMarketScreens.StockDetailScreenRoute  = backStackEntry.toRoute()
+
+            val stockDetailScreenData =
+                StockDetailScreenData(name = stockDetailScreenRoute.name,
+                    currentPrice = stockDetailScreenRoute.currentPrice)
 
             StockDetailScreen(stockDetailScreenData = stockDetailScreenData)
+
         }
 
     }

@@ -32,6 +32,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import com.enterprise.appstockmarketjetpackcompose.R
 import com.enterprise.appstockmarketjetpackcompose.model.screen.StockDetailScreenData
+import com.enterprise.appstockmarketjetpackcompose.navigation.StockMarketScreens
 import com.enterprise.appstockmarketjetpackcompose.remotedatasource.mock.PriceTrend
 import com.enterprise.appstockmarketjetpackcompose.remotedatasource.mock.Stock
 import com.enterprise.appstockmarketjetpackcompose.state.UiState
@@ -138,7 +139,7 @@ fun StockListRow(stock: Stock, navController: NavHostController) {
             .horizontalScroll(rememberScrollState())
             .clickable{
                 navController.navigate(
-                    StockDetailScreenData(name = stock.name,
+                    StockMarketScreens.StockDetailScreenRoute(name = stock.name,
                         currentPrice = stock.currentPrice)
                 )
             }
