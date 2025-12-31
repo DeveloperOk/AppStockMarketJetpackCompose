@@ -1,15 +1,16 @@
 package com.enterprise.appstockmarketjetpackcompose.navigation
 
+import androidx.navigation3.runtime.NavKey
 import kotlinx.serialization.Serializable
 
+
 @Serializable
-sealed class StockMarketScreens {
-
-    // Define a StockListScreenRoute that doesn't take any arguments
-    @Serializable
-    object StockListScreenRoute: StockMarketScreens()
+sealed interface StockMarketScreens {
 
     @Serializable
-    data class StockDetailScreenRoute(var name: String, var currentPrice: Float): StockMarketScreens()
+    data object StockListScreenRoute: StockMarketScreens, NavKey
+
+    @Serializable
+    data class StockDetailScreenRoute(var name: String, var currentPrice: Float): StockMarketScreens, NavKey
 
 }

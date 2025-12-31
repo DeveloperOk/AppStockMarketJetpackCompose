@@ -7,8 +7,8 @@ plugins {
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
 
-    // Kotlin serialization plugin for type safe routes and navigation arguments
-    kotlin("plugin.serialization") version "2.0.0"
+    //Navigation3
+    kotlin("plugin.serialization") version "2.2.21"
 
 }
 
@@ -42,16 +42,19 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
-    //Hilt
-    kotlinOptions {
-        jvmTarget = "17"
-    }
-
     buildFeatures {
         compose = true
     }
 
 }
+
+//Hilt
+kotlin {
+    compilerOptions {
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
+    }
+}
+
 
 //Hilt
 kapt {
@@ -64,10 +67,13 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.57.1")
     kapt("com.google.dagger:hilt-android-compiler:2.57.1")
 
-    //Navigation
-    implementation("androidx.navigation:navigation-compose:2.9.3")
-    // JSON serialization library, works with the Kotlin serialization plugin
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.0")
+    //Navigation3
+    val navigation3Version = "1.0.0"
+    implementation("androidx.navigation3:navigation3-runtime:$navigation3Version")
+    implementation("androidx.navigation3:navigation3-ui:$navigation3Version")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.4")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:2.10.0")
 
     //Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
