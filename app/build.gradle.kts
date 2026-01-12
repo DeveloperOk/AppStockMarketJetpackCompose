@@ -3,8 +3,10 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
 
+    //KSP for Hilt and Room
+    id("com.google.devtools.ksp")
+
     //Hilt
-    kotlin("kapt")
     id("com.google.dagger.hilt.android")
 
     //Navigation3
@@ -56,16 +58,11 @@ kotlin {
 }
 
 
-//Hilt
-kapt {
-    correctErrorTypes = true
-}
-
 dependencies {
 
     //Hilt
     implementation("com.google.dagger:hilt-android:2.57.1")
-    kapt("com.google.dagger:hilt-android-compiler:2.57.1")
+    ksp("com.google.dagger:hilt-android-compiler:2.57.1")
 
     //Navigation3
     val navigation3Version = "1.0.0"

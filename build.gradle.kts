@@ -4,9 +4,12 @@ plugins {
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.kotlin.compose) apply false
 
+
+    //KSP for Hilt and Room
+    id("com.google.devtools.ksp") version "2.3.1" apply false
+
     //Hilt
     id("com.google.dagger.hilt.android") version "2.57.1" apply false
-
 
     //Navigation3
     kotlin("plugin.serialization") version "2.2.21" apply false
