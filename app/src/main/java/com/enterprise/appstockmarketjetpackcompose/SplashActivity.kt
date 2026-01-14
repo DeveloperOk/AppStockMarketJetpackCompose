@@ -34,9 +34,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.enterprise.appstockmarketjetpackcompose.ui.theme.AppPrimaryColor
-import com.enterprise.appstockmarketjetpackcompose.ui.theme.AppStockMarketJetpackComposeTheme
-import com.enterprise.appstockmarketjetpackcompose.view.activity.MainActivity
+import com.enterprise.appstockmarketjetpackcompose.presentation.ui.theme.AppPrimaryColor
+import com.enterprise.appstockmarketjetpackcompose.presentation.ui.theme.AppStockMarketJetpackComposeTheme
+import com.enterprise.appstockmarketjetpackcompose.presentation.view.activity.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 
